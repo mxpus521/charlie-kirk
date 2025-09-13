@@ -1,0 +1,1402 @@
+/* Charlie Kirk Memorial Website Styles */
+/* Color Palette: Christian Gold, American Red/White/Blue */
+
+:root {
+    /* American Flag Colors */
+    --flag-red: #B22234;
+    --flag-blue: #3C3B6E;
+    --flag-white: #FFFFFF;
+    
+    /* Christian Gold and Earth Tones */
+    --christian-gold: #DAA520;
+    --warm-gold: #F4E4BC;
+    --deep-gold: #B8860B;
+    
+    /* Supporting Colors */
+    --navy-blue: #1B365D;
+    --cream: #FFF8DC;
+    --light-gray: #F5F5F5;
+    --dark-gray: #333333;
+    
+    /* Typography */
+    --font-serif: 'Crimson Text', serif;
+    --font-sans: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    color: var(--dark-gray);
+    background-color: var(--cream);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--flag-blue) 0%, var(--navy-blue) 50%, var(--flag-red) 100%);
+    color: var(--flag-white);
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="white" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>');
+    opacity: 0.1;
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 2;
+}
+
+/* Language Toggle Button */
+.language-toggle {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 1000;
+}
+
+.lang-btn {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+    color: var(--navy-blue);
+    border: 2px solid var(--christian-gold);
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(218, 165, 32, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 100px;
+    justify-content: center;
+    font-family: var(--font-serif);
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.lang-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    transition: left 0.6s ease;
+}
+
+.lang-btn:hover::before {
+    left: 100%;
+}
+
+.lang-btn:hover {
+    background: linear-gradient(135deg, var(--christian-gold) 0%, var(--deep-gold) 100%);
+    color: var(--flag-white);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2), 0 4px 15px rgba(218, 165, 32, 0.4);
+    border-color: var(--deep-gold);
+}
+
+.lang-btn:active {
+    transform: translateY(-1px) scale(1.02);
+    transition: all 0.1s ease;
+}
+
+.lang-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(218, 165, 32, 0.3), 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Language toggle icon */
+.lang-btn::after {
+    font-size: 1.1rem;
+    margin-left: 6px;
+    transition: transform 0.3s ease;
+}
+
+.lang-btn[data-lang="en"]::after {
+    content: '🇨🇳';
+}
+
+.lang-btn[data-lang="zh"]::after {
+    content: '🇺🇸';
+}
+
+.lang-btn:hover::after {
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* Language toggle states */
+.lang-btn[data-lang="en"] {
+    border-color: var(--flag-red);
+}
+
+.lang-btn[data-lang="zh"] {
+    border-color: var(--christian-gold);
+}
+
+.lang-btn[data-lang="en"]:hover {
+    background: linear-gradient(135deg, var(--flag-red) 0%, #8B0000 100%);
+    border-color: #8B0000;
+}
+
+.lang-btn[data-lang="zh"]:hover {
+    background: linear-gradient(135deg, var(--christian-gold) 0%, var(--deep-gold) 100%);
+    border-color: var(--deep-gold);
+}
+
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--warm-gold);
+}
+
+.hero-tagline {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--flag-white);
+    opacity: 0.9;
+}
+
+/* Navigation */
+.navigation {
+    background: var(--flag-white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 20px 0;
+}
+
+.nav-links li {
+    margin: 0 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--navy-blue);
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    background: var(--christian-gold);
+    color: var(--flag-white);
+    transform: translateY(-2px);
+}
+
+/* Sections */
+.section {
+    padding: 80px 0;
+}
+
+.section:nth-child(even) {
+    background: var(--light-gray);
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--navy-blue);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: var(--christian-gold);
+    margin: 20px auto;
+}
+
+/* Biography Section */
+.bio-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.bio-text {
+    font-size: 1.1rem;
+}
+
+.bio-text .lead {
+    font-size: 1.3rem;
+    color: var(--flag-red);
+    font-weight: 600;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.bio-text h3 {
+    color: var(--navy-blue);
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    margin: 30px 0 15px 0;
+    border-left: 4px solid var(--christian-gold);
+    padding-left: 15px;
+}
+
+.memorial-photo {
+    text-align: center;
+}
+
+.photo-placeholder {
+    width: 300px;
+    height: 400px;
+    background: linear-gradient(45deg, var(--christian-gold), var(--deep-gold));
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--flag-white);
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: 5px solid var(--flag-white);
+}
+
+/* Achievements Section */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.achievement-card {
+    background: var(--flag-white);
+    padding: 40px 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    border-top: 5px solid var(--christian-gold);
+}
+
+.achievement-card:hover {
+    transform: translateY(-10px);
+}
+
+.achievement-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.achievement-card h3 {
+    color: var(--navy-blue);
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+/* Timeline Section */
+.timeline {
+    background: var(--light-gray);
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--christian-gold), var(--flag-red));
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-year {
+    background: var(--christian-gold);
+    color: var(--flag-white);
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: var(--font-serif);
+    min-width: 80px;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(218, 165, 32, 0.3);
+}
+
+.timeline-content {
+    background: var(--flag-white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    margin: 0 30px;
+    flex: 1;
+    border-left: 5px solid var(--christian-gold);
+    transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+}
+
+.timeline-content h3 {
+    color: var(--navy-blue);
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.timeline-content p {
+    color: var(--dark-gray);
+    line-height: 1.6;
+}
+
+/* Tragic timeline item */
+.timeline-item.tragic .timeline-year {
+    background: var(--flag-red);
+}
+
+.timeline-item.tragic .timeline-content {
+    border-left-color: var(--flag-red);
+    background: linear-gradient(135deg, #fff 0%, #ffe6e6 100%);
+}
+
+.timeline-item.tragic .timeline-content h3 {
+    color: var(--flag-red);
+}
+
+/* Quotes Section */
+.quotes {
+    background: linear-gradient(135deg, var(--navy-blue) 0%, var(--flag-blue) 100%);
+    color: var(--flag-white);
+    padding: 100px 0;
+}
+
+.quotes .section-title {
+    color: var(--flag-white);
+}
+
+.quotes .section-title::after {
+    background: var(--christian-gold);
+}
+
+.quotes-carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    height: 300px;
+    overflow: hidden;
+}
+
+.quote-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.6s ease;
+    padding: 40px;
+}
+
+.quote-card.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.quote-card.prev {
+    transform: translateX(-100%);
+}
+
+.quote-card blockquote {
+    background: rgba(255,255,255,0.1);
+    padding: 50px;
+    border-radius: 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(218, 165, 32, 0.3);
+    position: relative;
+}
+
+.quote-card blockquote::before {
+    content: '"';
+    font-size: 4rem;
+    color: var(--christian-gold);
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-family: var(--font-serif);
+}
+
+.quote-card blockquote::after {
+    content: '"';
+    font-size: 4rem;
+    color: var(--christian-gold);
+    position: absolute;
+    bottom: -30px;
+    right: 20px;
+    font-family: var(--font-serif);
+}
+
+.quote-card blockquote span {
+    font-size: 1.4rem;
+    font-style: italic;
+    line-height: 1.6;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.quote-card cite {
+    color: var(--warm-gold);
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* Carousel Controls */
+.carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.carousel-btn {
+    background: var(--christian-gold);
+    color: var(--flag-white);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover {
+    background: var(--deep-gold);
+    transform: scale(1.1);
+}
+
+.carousel-dots {
+    display: flex;
+    gap: 15px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: var(--christian-gold);
+    transform: scale(1.3);
+}
+
+.dot:hover {
+    background: var(--warm-gold);
+}
+
+/* Free Speech Section */
+.free-speech {
+    background: linear-gradient(135deg, var(--navy-blue) 0%, #2c5aa0 50%, var(--flag-blue) 100%);
+    color: var(--flag-white);
+    position: relative;
+    overflow: hidden;
+}
+
+.free-speech::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.free-speech .container {
+    position: relative;
+    z-index: 2;
+}
+
+.free-speech .section-title {
+    color: var(--flag-white);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.free-speech .section-title::after {
+    background: var(--christian-gold);
+}
+
+.free-speech-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.featured-quote {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 50px;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 40px;
+    border: 2px solid var(--christian-gold);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.featured-quote::before {
+    content: '"';
+    font-size: 5rem;
+    color: var(--christian-gold);
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    font-family: var(--font-serif);
+    opacity: 0.8;
+}
+
+.featured-quote::after {
+    content: '"';
+    font-size: 5rem;
+    color: var(--christian-gold);
+    position: absolute;
+    bottom: -40px;
+    right: 30px;
+    font-family: var(--font-serif);
+    opacity: 0.8;
+}
+
+.featured-quote span {
+    display: block;
+    line-height: 1.7;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    font-weight: 400;
+    color: #ffffff;
+}
+
+.featured-quote cite {
+    display: block;
+    margin-top: 25px;
+    font-size: 1.2rem;
+    color: #ffd700;
+    font-weight: 700;
+    font-style: normal;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.advocacy-points,
+.constitutional-principles {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding: 40px;
+    border-radius: 15px;
+    border-left: 5px solid var(--christian-gold);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    color: var(--dark-gray);
+}
+
+.advocacy-points h3,
+.constitutional-principles h3 {
+    color: var(--navy-blue);
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    text-shadow: none;
+}
+
+.advocacy-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.advocacy-list li {
+    margin-bottom: 20px;
+    padding-left: 35px;
+    position: relative;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.advocacy-list li::before {
+    content: '★';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--christian-gold);
+    font-size: 1.4rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.advocacy-list strong {
+    color: var(--christian-gold);
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.constitutional-principles p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    text-shadow: none;
+    margin-top: 20px;
+    color: var(--dark-gray);
+    font-weight: 500;
+}
+
+/* New Advocacy Grid Layout */
+.advocacy-content {
+    display: grid;
+    gap: 50px;
+}
+
+.advocacy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.advocacy-item {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid var(--christian-gold);
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.advocacy-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--deep-gold);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    background: rgba(255,255,255,1);
+}
+
+.advocacy-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.advocacy-item h4 {
+    color: var(--navy-blue);
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    text-shadow: none;
+    font-weight: 700;
+}
+
+.advocacy-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-shadow: none;
+    color: var(--dark-gray);
+    font-weight: 500;
+}
+
+/* Constitutional Principles Enhanced */
+.principles-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-top: 30px;
+}
+
+.principle-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    text-shadow: none;
+    margin-bottom: 25px;
+    color: var(--dark-gray);
+    font-weight: 500;
+}
+
+.amendment-highlight {
+    background: var(--christian-gold);
+    padding: 30px;
+    border-radius: 15px;
+    border: 3px solid var(--deep-gold);
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(218, 165, 32, 0.3);
+}
+
+.amendment-highlight h5 {
+    color: var(--navy-blue);
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: none;
+    font-weight: 700;
+}
+
+.amendment-highlight blockquote {
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--navy-blue);
+    text-shadow: none;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Legacy Section */
+.legacy-pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.pillar {
+    background: var(--flag-white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border: 2px solid var(--christian-gold);
+}
+
+.pillar h3 {
+    color: var(--navy-blue);
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.stat {
+    background: var(--christian-gold);
+    color: var(--flag-white);
+    padding: 30px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: var(--font-serif);
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+/* Tribute Section */
+.tribute {
+    background: linear-gradient(135deg, var(--flag-red) 0%, var(--navy-blue) 100%);
+    color: var(--flag-white);
+}
+
+.tribute .section-title {
+    color: var(--flag-white);
+}
+
+.tribute .section-title::after {
+    background: var(--christian-gold);
+}
+
+/* Tragic End Section */
+.tragic-end {
+    background: rgba(0,0,0,0.3);
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    border-left: 5px solid var(--flag-red);
+}
+
+.tragic-end h3 {
+    color: var(--christian-gold);
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tragic-end p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.condemnation {
+    background: rgba(178, 34, 52, 0.2);
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 30px;
+    border: 2px solid var(--flag-red);
+}
+
+.condemnation h4 {
+    color: var(--flag-white);
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.condemnation p {
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+/* Memorial Message */
+.memorial-message {
+    margin: 40px 0;
+}
+
+.tribute-text {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+/* Widow Tribute */
+.widow-tribute {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border-left: 5px solid var(--christian-gold);
+}
+
+.widow-tribute h4 {
+    color: var(--christian-gold);
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.widow-tribute blockquote {
+    font-size: 1.2rem;
+    font-style: italic;
+    text-align: center;
+    margin: 0;
+}
+
+.widow-tribute cite {
+    display: block;
+    margin-top: 15px;
+    color: var(--warm-gold);
+    font-size: 1rem;
+    font-style: normal;
+}
+
+/* Final Quote */
+.final-quote {
+    background: rgba(255,255,255,0.1);
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+}
+
+.final-quote blockquote {
+    font-size: 1.3rem;
+    font-style: italic;
+    text-align: center;
+}
+
+.final-quote cite {
+    display: block;
+    margin-top: 20px;
+    color: var(--warm-gold);
+    font-size: 1.1rem;
+}
+
+.memorial-symbols {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.symbol {
+    font-size: 4rem;
+    opacity: 0.8;
+    transition: transform 0.3s ease;
+}
+
+.symbol:hover {
+    transform: scale(1.2);
+}
+
+/* Social Share Section */
+.social-share {
+    background: var(--cream);
+    padding: 60px 0;
+    text-align: center;
+    border-top: 3px solid var(--christian-gold);
+}
+
+.social-share h3 {
+    color: var(--navy-blue);
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+.share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.share-btn {
+    background: var(--flag-white);
+    border: 2px solid var(--christian-gold);
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    color: var(--navy-blue);
+    text-decoration: none;
+}
+
+.share-btn:hover {
+    background: var(--christian-gold);
+    color: var(--flag-white);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(218, 165, 32, 0.3);
+}
+
+.share-btn.facebook:hover {
+    background: #1877F2;
+    border-color: #1877F2;
+}
+
+.share-btn.twitter:hover {
+    background: #1DA1F2;
+    border-color: #1DA1F2;
+}
+
+.share-btn.linkedin:hover {
+    background: #0A66C2;
+    border-color: #0A66C2;
+}
+
+.share-btn.email:hover {
+    background: #EA4335;
+    border-color: #EA4335;
+}
+
+.share-icon {
+    font-size: 1.2rem;
+}
+
+.share-message {
+    background: var(--christian-gold);
+    color: var(--flag-white);
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: inline-block;
+    font-weight: 600;
+    animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    20%, 80% { opacity: 1; }
+}
+
+/* Footer */
+.footer {
+    background: var(--dark-gray);
+    color: var(--flag-white);
+    text-align: center;
+    padding: 40px 0;
+}
+
+.bible-verse {
+    margin-top: 15px;
+    font-style: italic;
+    color: var(--warm-gold);
+    font-size: 1.1rem;
+}
+
+.memorial-dedication {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--christian-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .language-toggle {
+        top: 20px;
+        right: 20px;
+    }
+    
+    .lang-btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+        min-width: 85px;
+    }
+    
+    .lang-btn::after {
+        font-size: 1rem;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 0;
+    }
+    
+    .nav-links li {
+        margin: 5px 0;
+    }
+    
+    .nav-links a {
+        padding: 8px 15px;
+        font-size: 1rem;
+    }
+    
+    .bio-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .photo-placeholder {
+        width: 250px;
+        height: 300px;
+        margin: 0 auto;
+    }
+    
+    /* Timeline responsive */
+    .timeline-container::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        flex-direction: row !important;
+        margin-left: 50px;
+    }
+    
+    .timeline-year {
+        position: absolute;
+        left: -45px;
+        min-width: 70px;
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+    
+    .timeline-content {
+        margin: 0;
+        padding: 20px;
+    }
+    
+    /* Free speech section responsive */
+    .featured-quote {
+        padding: 30px 20px;
+        font-size: 1.2rem;
+    }
+    
+    .featured-quote span {
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
+    
+    .featured-quote cite {
+        color: #ffd700;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
+    
+    .featured-quote::before,
+    .featured-quote::after {
+        font-size: 3rem;
+        color: #ffd700;
+    }
+    
+    .advocacy-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .advocacy-item {
+        padding: 25px 20px;
+    }
+    
+    .principles-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .amendment-highlight {
+        padding: 20px;
+    }
+    
+    /* Quotes carousel responsive */
+    .quotes-carousel {
+        height: 400px;
+    }
+    
+    .quote-card blockquote {
+        padding: 30px 20px;
+    }
+    
+    .quote-card blockquote span {
+        font-size: 1.2rem;
+    }
+    
+    .carousel-controls {
+        gap: 20px;
+    }
+    
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    /* Share buttons responsive */
+    .share-buttons {
+        gap: 10px;
+    }
+    
+    .share-btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .memorial-symbols {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .section {
+        padding: 50px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-tagline {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .language-toggle {
+        top: 15px;
+        right: 15px;
+    }
+    
+    .lang-btn {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+        min-width: 75px;
+        border-radius: 25px;
+    }
+    
+    .lang-btn::after {
+        font-size: 0.9rem;
+        margin-left: 2px;
+    }
+    
+    .achievement-card {
+        padding: 30px 20px;
+    }
+    
+    .timeline-content h3 {
+        font-size: 1.1rem;
+    }
+    
+    .timeline-content p {
+        font-size: 0.9rem;
+    }
+    
+    /* Free speech mobile optimization */
+    .featured-quote {
+        padding: 25px 15px;
+        font-size: 1.1rem;
+    }
+    
+    .featured-quote span {
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+    }
+    
+    .featured-quote cite {
+        color: #ffd700;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+    }
+    
+    .featured-quote::before,
+    .featured-quote::after {
+        font-size: 2.5rem;
+        color: #ffd700;
+    }
+    
+    .advocacy-item {
+        padding: 20px 15px;
+    }
+    
+    .advocacy-icon {
+        font-size: 2.5rem;
+    }
+    
+    .advocacy-item h4 {
+        font-size: 1.2rem;
+    }
+    
+    .advocacy-item p {
+        font-size: 0.95rem;
+    }
+    
+    .amendment-highlight {
+        padding: 15px;
+    }
+    
+    .amendment-highlight h5 {
+        font-size: 1.2rem;
+    }
+    
+    .amendment-highlight blockquote {
+        font-size: 0.9rem;
+    }
+    
+    .quotes-carousel {
+        height: 350px;
+    }
+    
+    .quote-card blockquote {
+        padding: 20px 15px;
+    }
+    
+    .quote-card blockquote span {
+        font-size: 1.1rem;
+    }
+    
+    .share-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .share-btn {
+        width: 200px;
+        justify-content: center;
+    }
+}
