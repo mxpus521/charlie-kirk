@@ -174,12 +174,122 @@ This memorial website pays tribute to **Charlie Kirk**, the extraordinary conser
 3. **Timeline**: Modify timeline events in the timeline section
 4. **Quotes**: Update quotes in the carousel section
 
+#### 🖼️ Replacing Memorial Photos
+
+The website currently uses a placeholder for Charlie Kirk's photo. To add a real memorial photo:
+
+**Step 1: Prepare Your Image**
+- **Format**: Use JPG or PNG format
+- **Size**: Recommended dimensions: 300x400px (portrait orientation)
+- **Quality**: High resolution, clear and respectful memorial photo
+- **File name**: Use a descriptive name like `charlie-kirk-memorial.jpg`
+
+**Step 2: Add Image to Project**
+```bash
+# Create assets folder if it doesn't exist
+mkdir assets
+mkdir assets/images
+
+# Copy your image file
+cp your-photo.jpg assets/images/charlie-kirk-memorial.jpg
+```
+
+**Step 3: Update HTML**
+Find this section in `index.html` (around line 60):
+```html
+<div class="memorial-photo">
+    <div class="photo-placeholder">
+        <span>Charlie Kirk</span>
+    </div>
+</div>
+```
+
+Replace it with:
+```html
+<div class="memorial-photo">
+    <img src="assets/images/charlie-kirk-memorial.jpg" 
+         alt="Charlie Kirk Memorial Photo" 
+         class="memorial-image">
+</div>
+```
+
+**Step 4: Add CSS Styles**
+Add this CSS to `styles.css`:
+```css
+.memorial-image {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: 5px solid var(--flag-white);
+    transition: transform 0.3s ease;
+}
+
+.memorial-image:hover {
+    transform: scale(1.05);
+}
+```
+
+**Alternative: Using External Image URL**
+If you prefer to use an external image URL:
+```html
+<div class="memorial-photo">
+    <img src="https://your-image-url.com/charlie-kirk.jpg" 
+         alt="Charlie Kirk Memorial Photo" 
+         class="memorial-image">
+</div>
+```
+
+**Step 5: Test Your Changes**
+- Open `index.html` in your browser
+- Verify the image displays correctly
+- Check both desktop and mobile views
+- Ensure the image is respectful and appropriate
+
 ### 🔧 Advanced Customization
 
 - **Fonts**: Change Google Fonts imports in `<head>`
 - **Animations**: Modify CSS transitions and keyframes
 - **Layout**: Adjust CSS Grid and Flexbox properties
 - **Features**: Add new sections or interactive elements
+
+#### 📸 Additional Image Customizations
+
+**Background Images**
+Add background images to sections by modifying CSS:
+```css
+.hero {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                      url('assets/images/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+```
+
+**Gallery Section**
+Add a photo gallery by creating a new section:
+```html
+<section class="gallery">
+    <div class="container">
+        <h2>Photo Gallery</h2>
+        <div class="photo-grid">
+            <img src="assets/images/photo1.jpg" alt="Description">
+            <img src="assets/images/photo2.jpg" alt="Description">
+            <!-- Add more photos -->
+        </div>
+    </div>
+</section>
+```
+
+**Favicon**
+Replace the default emoji favicon:
+1. Create a 32x32px icon file
+2. Save as `favicon.ico` in the root directory
+3. Update the HTML head:
+```html
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+```
 
 ---
 
@@ -517,12 +627,122 @@ For technical support or questions:
 3. **时间线**：修改时间线部分的事件
 4. **名言**：更新轮播部分的语录
 
+#### 🖼️ 替换纪念照片
+
+网站目前使用查理·柯克照片的占位符。要添加真实的纪念照片：
+
+**步骤1：准备图片**
+- **格式**：使用JPG或PNG格式
+- **尺寸**：推荐尺寸：300x400像素（竖向）
+- **质量**：高分辨率，清晰且合适的纪念照片
+- **文件名**：使用描述性名称，如`charlie-kirk-memorial.jpg`
+
+**步骤2：将图片添加到项目**
+```bash
+# 如果不存在则创建assets文件夹
+mkdir assets
+mkdir assets/images
+
+# 复制图片文件
+cp your-photo.jpg assets/images/charlie-kirk-memorial.jpg
+```
+
+**步骤3：更新HTML**
+在`index.html`中找到这个部分（大约第60行）：
+```html
+<div class="memorial-photo">
+    <div class="photo-placeholder">
+        <span>Charlie Kirk</span>
+    </div>
+</div>
+```
+
+替换为：
+```html
+<div class="memorial-photo">
+    <img src="assets/images/charlie-kirk-memorial.jpg" 
+         alt="查理·柯克纪念照片" 
+         class="memorial-image">
+</div>
+```
+
+**步骤4：添加CSS样式**
+将此CSS添加到`styles.css`：
+```css
+.memorial-image {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: 5px solid var(--flag-white);
+    transition: transform 0.3s ease;
+}
+
+.memorial-image:hover {
+    transform: scale(1.05);
+}
+```
+
+**替代方案：使用外部图片URL**
+如果您更愿意使用外部图片URL：
+```html
+<div class="memorial-photo">
+    <img src="https://your-image-url.com/charlie-kirk.jpg" 
+         alt="查理·柯克纪念照片" 
+         class="memorial-image">
+</div>
+```
+
+**步骤5：测试更改**
+- 在浏览器中打开`index.html`
+- 验证图片正确显示
+- 检查桌面和移动端视图
+- 确保图片庄重且合适
+
 ### 🔧 高级自定义
 
 - **字体**：修改`<head>`中的Google字体导入
 - **动画**：修改CSS过渡和关键帧
 - **布局**：调整CSS网格和Flexbox属性
 - **功能**：添加新部分或交互元素
+
+#### 📸 其他图片自定义
+
+**背景图片**
+通过修改CSS为部分添加背景图片：
+```css
+.hero {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                      url('assets/images/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+```
+
+**图片库部分**
+通过创建新部分添加照片库：
+```html
+<section class="gallery">
+    <div class="container">
+        <h2>照片库</h2>
+        <div class="photo-grid">
+            <img src="assets/images/photo1.jpg" alt="描述">
+            <img src="assets/images/photo2.jpg" alt="描述">
+            <!-- 添加更多照片 -->
+        </div>
+    </div>
+</section>
+```
+
+**网站图标**
+替换默认的表情符号网站图标：
+1. 创建32x32像素的图标文件
+2. 保存为根目录下的`favicon.ico`
+3. 更新HTML头部：
+```html
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+```
 
 ---
 
