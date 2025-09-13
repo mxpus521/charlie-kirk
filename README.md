@@ -174,9 +174,9 @@ This memorial website pays tribute to **Charlie Kirk**, the extraordinary conser
 3. **Timeline**: Modify timeline events in the timeline section
 4. **Quotes**: Update quotes in the carousel section
 
-#### 🖼️ Replacing Memorial Photos
+#### 🖼️ Memorial Photo Integration
 
-The website currently uses a placeholder for Charlie Kirk's photo. To add a real memorial photo:
+The website now includes Charlie Kirk's actual memorial photo (`charlie-kirk.jpg`). The photo has been professionally integrated with proper styling and responsive design. If you need to replace it with a different image:
 
 **Step 1: Prepare Your Image**
 - **Format**: Use JPG or PNG format
@@ -195,26 +195,28 @@ cp your-photo.jpg assets/images/charlie-kirk-memorial.jpg
 ```
 
 **Step 3: Update HTML**
-Find this section in `index.html` (around line 60):
+The current implementation in `index.html` (around line 85):
 ```html
 <div class="memorial-photo">
-    <div class="photo-placeholder">
-        <span>Charlie Kirk</span>
-    </div>
-</div>
-```
-
-Replace it with:
-```html
-<div class="memorial-photo">
-    <img src="assets/images/charlie-kirk-memorial.jpg" 
-         alt="Charlie Kirk Memorial Photo" 
+    <!-- Charlie Kirk Memorial Photo -->
+    <!-- 查理·柯克纪念照片 -->
+    <img src="charlie-kirk.jpg" 
+         alt="Charlie Kirk Memorial Photo / 查理·柯克纪念照片" 
          class="memorial-image">
 </div>
 ```
 
-**Step 4: Add CSS Styles**
-Add this CSS to `styles.css`:
+To replace with your own image:
+```html
+<div class="memorial-photo">
+    <img src="your-new-photo.jpg" 
+         alt="Charlie Kirk Memorial Photo / 查理·柯克纪念照片" 
+         class="memorial-image">
+</div>
+```
+
+**Step 4: CSS Styles (Already Included)**
+The memorial image styles are already implemented in `styles.css`:
 ```css
 .memorial-image {
     width: 300px;
@@ -229,6 +231,23 @@ Add this CSS to `styles.css`:
 .memorial-image:hover {
     transform: scale(1.05);
 }
+
+/* Responsive design included */
+@media (max-width: 768px) {
+    .memorial-image {
+        width: 250px;
+        height: 300px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .memorial-image {
+        width: 200px;
+        height: 250px;
+        margin: 0 auto;
+    }
+}
 ```
 
 **Alternative: Using External Image URL**
@@ -241,11 +260,18 @@ If you prefer to use an external image URL:
 </div>
 ```
 
-**Step 5: Test Your Changes**
+**Step 5: Current Implementation Status**
+✅ **Already Completed:**
+- Charlie Kirk's memorial photo is integrated
+- Responsive design implemented for all devices
+- Professional styling with hover effects
+- Proper accessibility attributes included
+
+**To verify the current setup:**
 - Open `index.html` in your browser
-- Verify the image displays correctly
-- Check both desktop and mobile views
-- Ensure the image is respectful and appropriate
+- The memorial photo displays in the Biography section
+- Hover over the image to see the subtle scale effect
+- Test on different screen sizes for responsive behavior
 
 ### 🔧 Advanced Customization
 
@@ -303,7 +329,8 @@ charlie-kirk-memorial/
 ├── styles.css              # All CSS styles
 ├── script.js               # JavaScript functionality
 ├── README.md               # This documentation
-└── assets/ (optional)      # Images, icons, etc.
+├── charlie-kirk.jpg        # Memorial photo (integrated)
+└── Charlie_Kirk.md         # Source content reference
 ```
 
 ### 🏗️ Technology Stack
@@ -627,9 +654,9 @@ For technical support or questions:
 3. **时间线**：修改时间线部分的事件
 4. **名言**：更新轮播部分的语录
 
-#### 🖼️ 替换纪念照片
+#### 🖼️ 纪念照片集成
 
-网站目前使用查理·柯克照片的占位符。要添加真实的纪念照片：
+网站现已包含查理·柯克的真实纪念照片（`charlie-kirk.jpg`）。照片已经过专业集成，具有适当的样式和响应式设计。如果您需要替换为不同的图片：
 
 **步骤1：准备图片**
 - **格式**：使用JPG或PNG格式
@@ -648,26 +675,28 @@ cp your-photo.jpg assets/images/charlie-kirk-memorial.jpg
 ```
 
 **步骤3：更新HTML**
-在`index.html`中找到这个部分（大约第60行）：
+`index.html`中的当前实现（大约第85行）：
 ```html
 <div class="memorial-photo">
-    <div class="photo-placeholder">
-        <span>Charlie Kirk</span>
-    </div>
-</div>
-```
-
-替换为：
-```html
-<div class="memorial-photo">
-    <img src="assets/images/charlie-kirk-memorial.jpg" 
-         alt="查理·柯克纪念照片" 
+    <!-- Charlie Kirk Memorial Photo -->
+    <!-- 查理·柯克纪念照片 -->
+    <img src="charlie-kirk.jpg" 
+         alt="Charlie Kirk Memorial Photo / 查理·柯克纪念照片" 
          class="memorial-image">
 </div>
 ```
 
-**步骤4：添加CSS样式**
-将此CSS添加到`styles.css`：
+要替换为您自己的图片：
+```html
+<div class="memorial-photo">
+    <img src="your-new-photo.jpg" 
+         alt="Charlie Kirk Memorial Photo / 查理·柯克纪念照片" 
+         class="memorial-image">
+</div>
+```
+
+**步骤4：CSS样式（已包含）**
+纪念图片样式已在`styles.css`中实现：
 ```css
 .memorial-image {
     width: 300px;
@@ -682,6 +711,23 @@ cp your-photo.jpg assets/images/charlie-kirk-memorial.jpg
 .memorial-image:hover {
     transform: scale(1.05);
 }
+
+/* 已包含响应式设计 */
+@media (max-width: 768px) {
+    .memorial-image {
+        width: 250px;
+        height: 300px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .memorial-image {
+        width: 200px;
+        height: 250px;
+        margin: 0 auto;
+    }
+}
 ```
 
 **替代方案：使用外部图片URL**
@@ -694,11 +740,18 @@ cp your-photo.jpg assets/images/charlie-kirk-memorial.jpg
 </div>
 ```
 
-**步骤5：测试更改**
+**步骤5：当前实现状态**
+✅ **已完成：**
+- 查理·柯克纪念照片已集成
+- 为所有设备实现了响应式设计
+- 具有悬停效果的专业样式
+- 包含适当的无障碍属性
+
+**验证当前设置：**
 - 在浏览器中打开`index.html`
-- 验证图片正确显示
-- 检查桌面和移动端视图
-- 确保图片庄重且合适
+- 纪念照片显示在生平简介部分
+- 悬停在图片上查看微妙的缩放效果
+- 在不同屏幕尺寸上测试响应式行为
 
 ### 🔧 高级自定义
 
@@ -756,7 +809,8 @@ charlie-kirk-memorial/
 ├── styles.css              # 所有CSS样式
 ├── script.js               # JavaScript功能
 ├── README.md               # 本文档
-└── assets/ (可选)           # 图片、图标等
+├── charlie-kirk.jpg        # 纪念照片（已集成）
+└── Charlie_Kirk.md         # 源内容参考
 ```
 
 ### 🏗️ 技术栈

@@ -303,6 +303,47 @@ body {
     border: 5px solid var(--flag-white);
 }
 
+/* Memorial Image Styles (for when placeholder is replaced) */
+.memorial-image {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: 5px solid var(--flag-white);
+    transition: transform 0.3s ease;
+}
+
+.memorial-image:hover {
+    transform: scale(1.05);
+}
+
+/* Photo Gallery Styles (optional addition) */
+.gallery {
+    padding: 80px 0;
+    background: var(--light-gray);
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.photo-grid img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.photo-grid img:hover {
+    transform: translateY(-5px);
+}
+
 /* Achievements Section */
 .achievements-grid {
     display: grid;
@@ -1175,6 +1216,12 @@ body {
         margin: 0 auto;
     }
     
+    .memorial-image {
+        width: 250px;
+        height: 300px;
+        margin: 0 auto;
+    }
+    
     /* Timeline responsive */
     .timeline-container::before {
         left: 20px;
@@ -1318,6 +1365,12 @@ body {
     
     .achievement-card {
         padding: 30px 20px;
+    }
+    
+    .memorial-image {
+        width: 200px;
+        height: 250px;
+        margin: 0 auto;
     }
     
     .timeline-content h3 {
